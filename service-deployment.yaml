@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: service-app
+  template:
+    metadata:
+      labels:
+        app: service-app
+    spec:
+      containers:
+      - name: service-app
+        image: your-service-image:tag
+        ports:
+        - containerPort: 3000
